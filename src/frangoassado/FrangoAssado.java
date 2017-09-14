@@ -5,6 +5,8 @@
  */
 package frangoassado;
 
+import views.JInitialFrame;
+
 /**
  *
  * @author N2S-PC03
@@ -16,6 +18,10 @@ public class FrangoAssado {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        JInitialFrame initial = new JInitialFrame();
+        initial.setVisible(true);
+        initial.setResizable(true);
+        initial.setLocationRelativeTo(null);
     }
     
 }
