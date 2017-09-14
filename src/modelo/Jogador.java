@@ -5,10 +5,78 @@
  */
 package modelo;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author N2S-PC03
  */
 public class Jogador {
+    private ImageIcon sprite;
+    private String nome;
+    private Pontuacao pontos;
+    private Localizacao localizacao;
+
+    public Jogador(){}
+    
+    public Jogador(ImageIcon sprite, String nome, Pontuacao pontos, Localizacao localizacao) {
+        this.sprite = sprite;
+        this.nome = nome;
+        this.pontos = pontos;
+        this.localizacao = localizacao;
+    }
+
+    
+    
+    public ImageIcon getSprite() {
+        return sprite;
+    }
+
+    public void setSprite(ImageIcon sprite) {
+        this.sprite = sprite;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Pontuacao getPontos() {
+        return pontos;
+    }
+
+    public void setPontos(Pontuacao pontos) {
+        this.pontos = pontos;
+    }
+
+    public Localizacao getLocalizacao() {
+        return localizacao;
+    }
+
+    public void setLocalizacao(Localizacao localizacao) {
+        this.localizacao = localizacao;
+    }
+    
+    
+    public Localizacao moveDireita(){
+        this.getLocalizacao().setX(getLocalizacao().getX()+1);
+        return this.localizacao;
+    }
+    public Localizacao moveEsquerda(){
+        this.getLocalizacao().setX(getLocalizacao().getX()-1);
+        return this.localizacao;
+    }
+    public Localizacao moveCima(){
+        this.getLocalizacao().setY(getLocalizacao().getY()+1);
+        return this.localizacao;
+    }
+    public Localizacao moveBaixo(){
+        this.getLocalizacao().setY(getLocalizacao().getY()-1);
+        return this.localizacao;
+    }
+    
     
 }
