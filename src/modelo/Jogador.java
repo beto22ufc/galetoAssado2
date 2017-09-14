@@ -19,8 +19,8 @@ public class Jogador {
 
     public Jogador(){}
     
-    public Jogador(ImageIcon sprite, String nome, Pontuacao pontos, Localizacao localizacao) {
-        this.sprite = sprite;
+    public Jogador( String nome, Pontuacao pontos, Localizacao localizacao) {
+        this.sprite = new ImageIcon(getClass().getResource("/imagem/player.png"));
         this.nome = nome;
         this.pontos = pontos;
         this.localizacao = localizacao;
