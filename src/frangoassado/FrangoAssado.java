@@ -5,6 +5,11 @@
  */
 package frangoassado;
 
+import java.util.ArrayList;
+import modelo.Armadilha;
+import modelo.Jogador;
+import modelo.Jogo;
+import modelo.Localizacao;
 import modelo.Model;
 import views.JInicialFrame;
 
@@ -19,7 +24,12 @@ public class FrangoAssado {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        JInicialFrame initial = new JInicialFrame(Model.getInstance());
+        Jogador jogador = new Jogador("Wallison Carlos", new Localizacao(0,0));
+        ArrayList<Armadilha> armadilhas = new ArrayList<>();
+        for(int i=0;i<320;i++){
+            armadilhas.add(new Armadilha());
+        }
+        JInicialFrame initial = new JInicialFrame(Model.getInstance(new Jogo(jogador, armadilhas)));
         initial.setVisible(true);
         initial.setResizable(false);
         initial.setLocationRelativeTo(null);

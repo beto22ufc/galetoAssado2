@@ -6,6 +6,7 @@
 package views;
 
 import controller.InicialController;
+import modelo.Jogo;
 import modelo.Model;
 
 /**
@@ -15,6 +16,7 @@ import modelo.Model;
 public class JInicialFrame extends javax.swing.JFrame {
     private Model model;
     private InicialController controller;
+    
     /**
      * Creates new form JInitialFrame
      */
@@ -55,9 +57,9 @@ public class JInicialFrame extends javax.swing.JFrame {
         background.add(jLabel1);
         jLabel1.setBounds(270, 50, 220, 100);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/bg_initial.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagem/bg_initial.jpg"))); // NOI18N
         background.add(jLabel2);
-        jLabel2.setBounds(0, 0, 540, 380);
+        jLabel2.setBounds(0, 0, 540, 390);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

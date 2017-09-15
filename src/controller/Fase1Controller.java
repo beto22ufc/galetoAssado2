@@ -5,6 +5,7 @@
  */
 package controller;
 
+import javax.swing.JLabel;
 import modelo.Model;
 import views.JFase1Frame;
 
@@ -15,10 +16,11 @@ import views.JFase1Frame;
 public class Fase1Controller implements Observer{
     private Model model;
     private JFase1Frame view;
-    
+    private JLabel player;
     public Fase1Controller(Model model, JFase1Frame view){
         this.model = model;
         this.view = view;
+        this.init();
     }
 
     @Override
@@ -26,5 +28,8 @@ public class Fase1Controller implements Observer{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    public void init(){
+        this.view.getPlayer().setIcon(model.getJogo().getJogador().getSprite());
+    }
     
 }

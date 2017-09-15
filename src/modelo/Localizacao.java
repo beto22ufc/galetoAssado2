@@ -11,7 +11,14 @@ package modelo;
  */
 public class Localizacao {
     private int x,y;
-
+    
+    public Localizacao(){}
+    
+    public Localizacao(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+    
     public int getX() {
         return x;
     }

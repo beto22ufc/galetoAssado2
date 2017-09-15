@@ -15,14 +15,17 @@ import java.util.ArrayList;
 public class Model {
     private ArrayList<Observer> observers = new ArrayList<>();
     private static Model model;
-    
-    public static Model getInstance(){
+    private Jogo jogo; 
+    public static Model getInstance(Jogo jogo){
         if(model == null)
-            model = new Model();
+            model = new Model(jogo);
         return model;
     }
     
     private Model(){}
+    private Model(Jogo jogo){
+        this.jogo = jogo;
+    }
     
     public void attach(Observer observer){
         if(!observers.contains(observer))
@@ -37,5 +40,8 @@ public class Model {
         for(Observer observer: observers){
             observer.update();
         }
+    }
+    public Jogo getJogo(){
+        return this.jogo;
     }
 }

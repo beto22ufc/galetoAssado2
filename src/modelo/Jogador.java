@@ -14,15 +14,13 @@ import javax.swing.ImageIcon;
 public class Jogador {
     private ImageIcon sprite;
     private String nome;
-    private Pontuacao pontos;
     private Localizacao localizacao;
 
     public Jogador(){}
     
-    public Jogador( String nome, Pontuacao pontos, Localizacao localizacao) {
+    public Jogador( String nome, Localizacao localizacao) {
         this.sprite = new ImageIcon(getClass().getResource("/imagem/player.png"));
         this.nome = nome;
-        this.pontos = pontos;
         this.localizacao = localizacao;
     }
 
@@ -42,14 +40,6 @@ public class Jogador {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public Pontuacao getPontos() {
-        return pontos;
-    }
-
-    public void setPontos(Pontuacao pontos) {
-        this.pontos = pontos;
     }
 
     public Localizacao getLocalizacao() {
