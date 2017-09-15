@@ -5,12 +5,18 @@
  */
 package views;
 
+import controller.Fase1Controller;
+import modelo.Model;
+
 /**
  *
  * @author Wallison Carlos
  */
 public class JFase1Frame extends javax.swing.JFrame {
-
+    
+    private Fase1Controller controller;
+    private Model model;
+    
     /**
      * Creates new form JFase1Frame
      */
@@ -18,6 +24,11 @@ public class JFase1Frame extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JFase1Frame(Model model){
+        this();
+        this.model = model;
+        this.controller = new Fase1Controller(model, this);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

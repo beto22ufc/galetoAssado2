@@ -5,7 +5,8 @@
  */
 package frangoassado;
 
-import views.JInitialFrame;
+import modelo.Model;
+import views.JInicialFrame;
 
 /**
  *
@@ -18,9 +19,9 @@ public class FrangoAssado {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        JInitialFrame initial = new JInitialFrame();
+        JInicialFrame initial = new JInicialFrame(Model.getInstance());
         initial.setVisible(true);
-        initial.setResizable(true);
+        initial.setResizable(false);
         initial.setLocationRelativeTo(null);
     }
     
