@@ -5,17 +5,29 @@
  */
 package views;
 
+import controller.InicialController;
+import modelo.Jogo;
+import modelo.Model;
+
 /**
  *
  * @author Wallison Carlos
  */
-public class JInitialFrame extends javax.swing.JFrame {
-
+public class JInicialFrame extends javax.swing.JFrame {
+    private Model model;
+    private InicialController controller;
+    
     /**
      * Creates new form JInitialFrame
      */
-    public JInitialFrame() {
+    public JInicialFrame() {
         initComponents();
+    }
+    
+    public JInicialFrame(Model model){
+        this();
+        this.model = model;
+        this.controller = new InicialController(model, this);
     }
 
     /**
@@ -45,9 +57,9 @@ public class JInitialFrame extends javax.swing.JFrame {
         background.add(jLabel1);
         jLabel1.setBounds(270, 50, 220, 100);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/bg_initial.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagem/bg_initial.jpg"))); // NOI18N
         background.add(jLabel2);
-        jLabel2.setBounds(0, 0, 540, 380);
+        jLabel2.setBounds(0, 0, 540, 390);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -64,10 +76,7 @@ public class JInitialFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        JFase1Frame initial = new JFase1Frame();
-        initial.setVisible(true);
-        initial.setResizable(true);
-        initial.setLocationRelativeTo(null);
+        this.controller.getMouseEvent(evt);
     }//GEN-LAST:event_jLabel1MouseClicked
 
     /**
@@ -87,20 +96,21 @@ public class JInitialFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JInitialFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JInicialFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JInitialFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JInicialFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JInitialFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JInicialFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JInitialFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JInicialFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JInitialFrame().setVisible(true);
+                new JInicialFrame().setVisible(true);
             }
         });
     }

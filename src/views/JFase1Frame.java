@@ -5,12 +5,22 @@
  */
 package views;
 
+import controller.Fase1Controller;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import modelo.Model;
+
 /**
  *
  * @author Wallison Carlos
  */
-public class JFase1Frame extends javax.swing.JFrame {
-
+public class JFase1Frame extends javax.swing.JFrame implements KeyListener{
+    
+    private Fase1Controller controller;
+    private Model model;
+    
     /**
      * Creates new form JFase1Frame
      */
@@ -18,6 +28,11 @@ public class JFase1Frame extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JFase1Frame(Model model){
+        this();
+        this.model = model;
+        this.controller = new Fase1Controller(model, this);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,17 +42,19 @@ public class JFase1Frame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        campo = new javax.swing.JPanel();
+        player = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 800));
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(800, 800));
-        jPanel1.setLayout(null);
+        campo.setPreferredSize(new java.awt.Dimension(800, 800));
+        campo.setLayout(null);
+        campo.add(player);
+        player.setBounds(0, 780, 20, 20);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/bg_fase.png"))); // NOI18N
-        jPanel1.add(jLabel1);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagem/bg_fase.png"))); // NOI18N
+        campo.add(jLabel1);
         jLabel1.setBounds(0, 0, 800, 800);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -45,13 +62,13 @@ public class JFase1Frame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(campo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(campo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -92,9 +109,43 @@ public class JFase1Frame extends javax.swing.JFrame {
             }
         });
     }
+
+    public JPanel getCampo() {
+        return campo;
+    }
+
+    public void setCampo(JPanel campo) {
+        this.campo = campo;
+    }
+
+    public JLabel getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(JLabel player) {
+        this.player = player;
+    }
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel campo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel player;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
