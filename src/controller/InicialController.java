@@ -5,9 +5,7 @@
  */
 package controller;
 
-import java.awt.event.ActionEvent;
 import modelo.Model;
-import views.JFase1Frame;
 import views.JInicialFrame;
 import java.awt.event.MouseEvent;
 import views.JFaseFrame;

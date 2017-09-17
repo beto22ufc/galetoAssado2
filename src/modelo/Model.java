@@ -68,7 +68,7 @@ public class Model {
     }
     
     public void attach(Observer observer){
-        if(observers.contains(observer))
+        if(!observers.contains(observer))
             observers.add(observer);
     }
     
