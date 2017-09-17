@@ -40,5 +40,8 @@ public class Jogo {
         this.armadilhas = armadilhas;
     }
     
+    public boolean colisao(Localizacao localizacao, Localizacao localizacao1){
+        return (localizacao.getX()==localizacao1.getX() && localizacao.getY()==localizacao1.getY());
+    }
     
 }

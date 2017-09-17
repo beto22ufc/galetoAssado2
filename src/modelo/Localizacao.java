@@ -24,9 +24,7 @@ public class Localizacao {
     }
 
     public void setX(int x) {
-        if(this.x >0){
-            this.x = x;
-        }else{this.x = 0;}
+        this.x = x;
     }
 
     public int getY() {

@@ -29,7 +29,7 @@ public class Model {
     
     public void moveJogadorDireita(){
         int i=0;
-        while(i<60){
+        while(i<120){
             this.getJogo().getJogador().moveDireita();
             System.out.println(this.getJogo().getJogador().getLocalizacao().getX()+" "+this.getJogo().getJogador().getLocalizacao().getY());
             i+=2;
@@ -39,7 +39,7 @@ public class Model {
     
     public void moveJogadorParaBaixo(){
         int i=0;
-        while(i<60){
+        while(i<120){
             this.getJogo().getJogador().moveBaixo();
             System.out.println(this.getJogo().getJogador().getLocalizacao().getX()+" "+this.getJogo().getJogador().getLocalizacao().getY());
             i+=2;
@@ -49,7 +49,7 @@ public class Model {
         
     public void moveJogadorParaCima(){
         int i=0;
-        while(i<60){
+        while(i<120){
             this.getJogo().getJogador().moveCima();
             i+=2;
             System.out.println(this.getJogo().getJogador().getLocalizacao().getX()+" "+this.getJogo().getJogador().getLocalizacao().getY());
@@ -59,7 +59,7 @@ public class Model {
     
     public void moveJogadorParaEsquerda(){
         int i=0;
-        while(i<60){
+        while(i<120){
             this.getJogo().getJogador().moveEsquerda();
             i+=2;
             System.out.println(this.getJogo().getJogador().getLocalizacao().getX()+" "+this.getJogo().getJogador().getLocalizacao().getY());

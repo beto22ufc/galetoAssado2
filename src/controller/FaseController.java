@@ -9,7 +9,6 @@ import java.awt.event.KeyEvent;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import modelo.Model;
-import views.JFase1Frame;
 import views.JFaseFrame;
 
 /**
@@ -28,8 +27,7 @@ public class FaseController implements Observer{
 
     @Override
     public void update() {
-        System.out.println("Teste");
-        this.view.getPlayer().setBounds(this.model.getJogo().getJogador().getLocalizacao().getX()*60, this.model.getJogo().getJogador().getLocalizacao().getY()*60, 60,60);
+        this.view.getPlayer().setBounds(this.model.getJogo().getJogador().getLocalizacao().getX(), this.model.getJogo().getJogador().getLocalizacao().getY()*60, 60,60);
     }
     
     public void init(){
