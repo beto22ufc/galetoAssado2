@@ -15,7 +15,7 @@ public class Jogador {
     private ImageIcon sprite;
     private String nome;
     private Localizacao localizacao;
-
+    private int vida = 3;
     public Jogador(){}
     
     public Jogador( String nome, Localizacao localizacao) {
@@ -24,7 +24,19 @@ public class Jogador {
         this.localizacao = localizacao;
     }
 
-    
+    public int getVida() {
+        return vida;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
+        if(this.vida>3){
+            this.vida = 3;
+        }
+        if(this.vida<0){
+            this.vida =0;
+        }
+    }
     
     public ImageIcon getSprite() {
         return sprite;
@@ -60,11 +72,11 @@ public class Jogador {
         return this.localizacao;
     }
     public Localizacao moveCima(){
-        this.getLocalizacao().setY(getLocalizacao().getY()+1);
+        this.getLocalizacao().setY(getLocalizacao().getY()-1);
         return this.localizacao;
     }
     public Localizacao moveBaixo(){
-        this.getLocalizacao().setY(getLocalizacao().getY()-1);
+        this.getLocalizacao().setY(getLocalizacao().getY()+1);
         return this.localizacao;
     }
     

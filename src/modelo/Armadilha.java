@@ -15,7 +15,7 @@ public class Armadilha {
     private ImageIcon sprite;
     private String nome;
     private Localizacao localizacao;
-
+    private boolean colidiu;
     public Armadilha(){}
     
     public Armadilha( String nome, Localizacao localizacao) {
@@ -47,6 +47,20 @@ public class Armadilha {
     public void setLocalizacao(Localizacao localizacao) {
         this.localizacao = localizacao;
     }
+
+    public boolean isColidiu() {
+        return colidiu;
+    }
+
+    public void setColidiu(boolean colidiu) {
+        this.colidiu = colidiu;
+    }
     
     
+    
+    @Override
+    public boolean equals(Object a){
+        Armadilha armadilha = (Armadilha)a;
+        return (this.getLocalizacao().getX() == armadilha.getLocalizacao().getX() && this.getLocalizacao().getY() == armadilha.getLocalizacao().getY());
+    }
 }

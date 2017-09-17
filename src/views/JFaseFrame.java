@@ -9,6 +9,7 @@ import controller.FaseController;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,6 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import modelo.Armadilha;
 import modelo.Model;
+import modelo.Vida;
 
 /**
  *
@@ -23,6 +25,9 @@ import modelo.Model;
  */
 public class JFaseFrame extends JFrame{
     private JLabel player = new JLabel();
+    private ArrayList<JLabel> armadilhas = new ArrayList<>();
+    private ArrayList<JLabel> vidas = new ArrayList<>();
+    private ArrayList<JLabel> newvidas = new ArrayList<>();
     private FaseController controller;
     private Model model;
     private final JLabel background = new JLabel(new ImageIcon(getClass().getResource("/imagem/bg_fase.png")));
@@ -44,20 +49,50 @@ public class JFaseFrame extends JFrame{
         this.setSize(1200, 600);
         this.addKeyListener(new KeysEvents(this));
         campo.setLayout(null);
+        campo.setSize(1200, 600);
+        campo.setBounds(0, 0, 1200, 660);
         player.setBackground(Color.red);
-        player.setBounds(0, 0, 60, 60);
+        player.setBounds(0, this.model.getJogo().getJogador().getLocalizacao().getY(), 60, 60);
         player.setIcon(this.model.getJogo().getJogador().getSprite());
-        this.background.setBounds(0, 0, 1200, 600);
-        campo.add(player);
+        initVidas();
+        addVidas();
+        this.background.setBounds(0, 0, 1200, 660);
         for(Armadilha a : this.model.getJogo().getArmadilhas()){
-            JLabel armadilha = new JLabel(a.getSprite());
+            JLabel armadilha = new JLabel();
             armadilha.setBounds(a.getLocalizacao().getX()*60, a.getLocalizacao().getY()*60, 60, 60);
+            armadilhas.add(armadilha);
+            armadilha = armadilhas.get(armadilhas.indexOf(armadilha));
             campo.add(armadilha);
         }
+        campo.add(player);
         campo.add(background);
         getContentPane().add(campo);
     }
     
+    public void initVidas(){
+        ImageIcon heart = new ImageIcon(getClass().getResource("/imagem/heart.png"));
+        for(int i=0;i<3;i++){
+            JLabel vida = new JLabel(heart);
+            vida.setBounds(i*25, 9*60, 20, 20);
+            vidas.add(vida);
+        }
+        for(JLabel vida : vidas){
+            campo.add(vida);
+        }
+    }
+    
+    public void addVidas(){
+        ImageIcon life = new ImageIcon(getClass().getResource("/imagem/life.png"));
+        for(int i=0;i<this.model.getJogo().getVidas().size();i++){
+            Vida v = this.model.getJogo().getVidas().get(i);
+            JLabel vida = new JLabel(life);
+            vida.setBounds(v.getLocalizacao().getX()*60, v.getLocalizacao().getY()*60, 60, 60);
+            newvidas.add(vida);
+        }
+        for(JLabel vida : newvidas){
+            campo.add(vida);
+        }
+    }
     public class KeysEvents implements KeyListener{
         private JFaseFrame view;
         public KeysEvents(){
@@ -108,6 +143,34 @@ public class JFaseFrame extends JFrame{
 
     public void setPlayer(JLabel player) {
         this.player = player;
+    }
+
+    public ArrayList<JLabel> getArmadilhas() {
+        return armadilhas;
+    }
+
+    public void setArmadilhas(ArrayList<JLabel> armadilhas) {
+        this.armadilhas = armadilhas;
+    }
+    
+    public JPanel getCampo(){
+        return this.campo;
+    }
+
+    public ArrayList<JLabel> getVidas() {
+        return vidas;
+    }
+
+    public void setVidas(ArrayList<JLabel> vidas) {
+        this.vidas = vidas;
+    }
+
+    public ArrayList<JLabel> getNewvidas() {
+        return newvidas;
+    }
+
+    public void setNewvidas(ArrayList<JLabel> newvidas) {
+        this.newvidas = newvidas;
     }
     
     

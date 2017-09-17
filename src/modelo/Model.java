@@ -7,6 +7,7 @@ package modelo;
 
 import controller.Observer;
 import java.util.ArrayList;
+import views.JFaseFrame;
 
 /**
  *
@@ -17,8 +18,7 @@ public class Model {
     private static Model model;
     private Jogo jogo; 
     public static Model getInstance(Jogo jogo){
-        if(model == null)
-            model = new Model(jogo);
+        model = new Model(jogo);
         return model;
     }
     
@@ -27,24 +27,22 @@ public class Model {
         this.jogo = jogo;
     }
     
-    public void moveJogadorDireita(){
+    public void moveJogadorDireita(JFaseFrame fase){
         int i=0;
         while(i<120){
             this.getJogo().getJogador().moveDireita();
-            System.out.println(this.getJogo().getJogador().getLocalizacao().getX()+" "+this.getJogo().getJogador().getLocalizacao().getY());
             i+=2;
-            notifyObservers();
         }
+        notifyObservers();
     }
     
     public void moveJogadorParaBaixo(){
         int i=0;
         while(i<120){
             this.getJogo().getJogador().moveBaixo();
-            System.out.println(this.getJogo().getJogador().getLocalizacao().getX()+" "+this.getJogo().getJogador().getLocalizacao().getY());
             i+=2;
-            notifyObservers();
         }
+        notifyObservers();
     }
         
     public void moveJogadorParaCima(){
@@ -52,9 +50,8 @@ public class Model {
         while(i<120){
             this.getJogo().getJogador().moveCima();
             i+=2;
-            System.out.println(this.getJogo().getJogador().getLocalizacao().getX()+" "+this.getJogo().getJogador().getLocalizacao().getY());
-            notifyObservers();
         }
+        notifyObservers();
     }
     
     public void moveJogadorParaEsquerda(){
@@ -62,9 +59,24 @@ public class Model {
         while(i<120){
             this.getJogo().getJogador().moveEsquerda();
             i+=2;
-            System.out.println(this.getJogo().getJogador().getLocalizacao().getX()+" "+this.getJogo().getJogador().getLocalizacao().getY());
-            notifyObservers();
         }
+        notifyObservers();
+    }
+    
+    public int detectaColisao(){
+        for(int i=0;i<this.getJogo().getArmadilhas().size();i++){
+            Armadilha armadilha = this.getJogo().getArmadilhas().get(i);
+            if(this.getJogo().gameOver(this.getJogo().getJogador(), armadilha) && !armadilha.isColidiu()){
+                this.getJogo().getJogador().setVida(this.getJogo().getJogador().getVida()-1);
+                System.out.println("Jogador:\n\tX: "+this.getJogo().getJogador().getLocalizacao().getX()+""
+                        + "\n\tY: "+this.getJogo().getJogador().getLocalizacao().getY()+"\n"
+                                + "Armadilha: \n\tX: "+armadilha.getLocalizacao().getX()+""
+                                        + "\n\tY: "+armadilha.getLocalizacao().getY());
+                armadilha.setColidiu(true);
+                return i;
+            }
+        }
+        return -1;
     }
     
     public void attach(Observer observer){

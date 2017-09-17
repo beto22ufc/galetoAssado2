@@ -25,6 +25,12 @@ public class Localizacao {
 
     public void setX(int x) {
         this.x = x;
+        if(this.x<=0){
+            this.x =0;
+        }
+        if(this.x>=1140){
+            this.x =1140;
+        }
     }
 
     public int getY() {
@@ -32,9 +38,13 @@ public class Localizacao {
     }
 
     public void setY(int y) {
-         if(this.y >0){
-            this.y = y;
-        }else{this.y = 0;}
+        this.y = y;
+        if(this.y>=480){
+            this.y =480;
+        }
+        if(this.y<=0){
+            this.y =0;
+        }
     }
     
     
