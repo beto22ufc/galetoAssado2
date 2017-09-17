@@ -27,8 +27,48 @@ public class Model {
         this.jogo = jogo;
     }
     
+    public void moveJogadorDireita(){
+        int i=0;
+        while(i<60){
+            this.getJogo().getJogador().moveDireita();
+            System.out.println(this.getJogo().getJogador().getLocalizacao().getX()+" "+this.getJogo().getJogador().getLocalizacao().getY());
+            i+=2;
+            notifyObservers();
+        }
+    }
+    
+    public void moveJogadorParaBaixo(){
+        int i=0;
+        while(i<60){
+            this.getJogo().getJogador().moveBaixo();
+            System.out.println(this.getJogo().getJogador().getLocalizacao().getX()+" "+this.getJogo().getJogador().getLocalizacao().getY());
+            i+=2;
+            notifyObservers();
+        }
+    }
+        
+    public void moveJogadorParaCima(){
+        int i=0;
+        while(i<60){
+            this.getJogo().getJogador().moveCima();
+            i+=2;
+            System.out.println(this.getJogo().getJogador().getLocalizacao().getX()+" "+this.getJogo().getJogador().getLocalizacao().getY());
+            notifyObservers();
+        }
+    }
+    
+    public void moveJogadorParaEsquerda(){
+        int i=0;
+        while(i<60){
+            this.getJogo().getJogador().moveEsquerda();
+            i+=2;
+            System.out.println(this.getJogo().getJogador().getLocalizacao().getX()+" "+this.getJogo().getJogador().getLocalizacao().getY());
+            notifyObservers();
+        }
+    }
+    
     public void attach(Observer observer){
-        if(!observers.contains(observer))
+        if(observers.contains(observer))
             observers.add(observer);
     }
     

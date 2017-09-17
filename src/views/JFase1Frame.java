@@ -43,33 +43,31 @@ public class JFase1Frame extends javax.swing.JFrame implements KeyListener{
     private void initComponents() {
 
         campo = new javax.swing.JPanel();
-        player = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Fase 1");
 
-        campo.setPreferredSize(new java.awt.Dimension(800, 800));
         campo.setLayout(null);
-        campo.add(player);
-        player.setBounds(0, 780, 20, 20);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagem/bg_fase.png"))); // NOI18N
-        campo.add(jLabel1);
-        jLabel1.setBounds(0, 0, 800, 800);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(campo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(campo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(campo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 118, Short.MAX_VALUE))
         );
 
         pack();
@@ -109,28 +107,11 @@ public class JFase1Frame extends javax.swing.JFrame implements KeyListener{
             }
         });
     }
-
-    public JPanel getCampo() {
-        return campo;
-    }
-
-    public void setCampo(JPanel campo) {
-        this.campo = campo;
-    }
-
-    public JLabel getPlayer() {
-        return player;
-    }
-
-    public void setPlayer(JLabel player) {
-        this.player = player;
-    }
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel campo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel player;
     // End of variables declaration//GEN-END:variables
 
     @Override

@@ -29,7 +29,7 @@ public class Fase1Controller implements Observer{
     }
     
     public void init(){
-        this.view.getPlayer().setIcon(model.getJogo().getJogador().getSprite());
+        
     }
     
 }

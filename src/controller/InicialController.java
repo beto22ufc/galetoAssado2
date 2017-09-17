@@ -10,6 +10,7 @@ import modelo.Model;
 import views.JFase1Frame;
 import views.JInicialFrame;
 import java.awt.event.MouseEvent;
+import views.JFaseFrame;
 
 /**
  *
@@ -30,7 +31,8 @@ public class InicialController implements Observer{
     }
     
     public void getMouseEvent(MouseEvent evt){
-        JFase1Frame initial = new JFase1Frame(this.model);
+        JFaseFrame initial = new JFaseFrame(this.model);
+        this.view.dispose();
         initial.setVisible(true);
         initial.setResizable(false);
         initial.setLocationRelativeTo(null);

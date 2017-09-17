@@ -26,8 +26,8 @@ public class FrangoAssado {
         // TODO code application logic here
         Jogador jogador = new Jogador("Wallison Carlos", new Localizacao(0,0));
         ArrayList<Armadilha> armadilhas = new ArrayList<>();
-        for(int i=0;i<320;i++){
-            armadilhas.add(new Armadilha());
+        for(int i=0;i<40;i++){
+            armadilhas.add(new Armadilha("Fire", new Localizacao(((int)(Math.random()*20)), ((int)(Math.random()*10)))));
         }
         JInicialFrame initial = new JInicialFrame(Model.getInstance(new Jogo(jogador, armadilhas)));
         initial.setVisible(true);
